@@ -4,12 +4,12 @@ const defaultMail = async (receiver: Array<string>): Promise<string> => {
   try {
     // create reusable transporter object using the default SMTP transport
     let transporter = createTransport({
-      host: process.env.SMTPSERVER || "smtp.domain.com",
+      host: process.env.SMTPSERVER,
       port: 465, //587
       secure: true, // true for 465, false for other ports
       auth: {
-        user: process.env.EMAILUSER || "info@addtech.site", // generated ethereal user
-        pass: process.env.EMAILPASS || "addTech@2021", // generated ethereal password
+        user: process.env.EMAILUSER, // generated ethereal user
+        pass: process.env.EMAILPASS, // generated ethereal password
       },
       tls: {
         // do not fail on invalid certs
