@@ -1,29 +1,33 @@
-import { createTestAccount, createTransport } from "nodemailer";
+import { createTransport } from "nodemailer";
 
-const defaultMail = async (): Promise<string> => {
+const defaultMail = async (receiver: Array<string>): Promise<string> => {
   try {
-    // Generate test SMTP service account from ethereal.email
-    // Only needed if you don't have a real mail account for testing
-    let testAccount = await createTestAccount();
-
     // create reusable transporter object using the default SMTP transport
     let transporter = createTransport({
-      host: "smtp.ethereal.email",
-      port: 587,
-      secure: false, // true for 465, false for other ports
+      host: process.env.SMTPSERVER || "smtp.domain.com",
+      port: 465, //587
+      secure: true, // true for 465, false for other ports
       auth: {
-        user: testAccount.user, // generated ethereal user
-        pass: testAccount.pass, // generated ethereal password
+        user: process.env.EMAILUSER || "info@addtech.site", // generated ethereal user
+        pass: process.env.EMAILPASS || "addTech@2021", // generated ethereal password
+      },
+      tls: {
+        // do not fail on invalid certs
+        rejectUnauthorized: false,
       },
     });
 
     // send mail with defined transport object
     let info = await transporter.sendMail({
-      from: '"Fred Foo 👻" <foo@example.com>', // sender address
-      to: "dev.kst.aaron@gmail.com", // list of receivers
-      subject: "Hello ✔", // Subject line
-      text: "Hello world?", // plain text body
-      html: "<b>Hello world?</b>", // html body
+      from: "addTech <info@addtech.site>", // sender address
+      to: receiver.length === 1 ? receiver[0] : receiver.join(", "), // list of receivers
+      envelope: {
+        from: "info@addtech.site", // sender address
+        to: receiver.length === 1 ? receiver[0] : receiver.join(", "), // list of receivers
+      },
+      subject: "Thanks for Subscribing", // Subject line
+      text: "You have subscribed to our newsletter, you can unsubscribe at: https://www.example.com", // plain text body
+      html: "You have subscribed to our newsletter, you can unsubscribe at: <a href='https://www.example.com' target='blank'>https://www.example.com</a>", // html body
     });
 
     return info.messageId;

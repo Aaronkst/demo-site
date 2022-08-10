@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import React, { useState } from "react";
 import { SectionHeader } from "../components/Typography";
+import axios from "axios";
 
 const Quote: NextPage = (): JSX.Element => {
   const [info, setInfo] = useState({ name: "", email: "", message: "" });
@@ -11,7 +12,9 @@ const Quote: NextPage = (): JSX.Element => {
       info.email &&
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(info.email)
     ) {
-      alert("Submitted");
+      axios.post("/api/mail", { receiver: [info.email] }).then((data) => {
+        alert("success");
+      });
     } else {
       alert("Invalid Info");
     }

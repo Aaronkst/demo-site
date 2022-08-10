@@ -19,7 +19,18 @@ const handler = async (
 ) => {
   if (req.method === "POST") {
     try {
-      const data = await defaultMail();
+      if (!req.body.receiver) {
+        return res
+          .status(400)
+          .send({ status: Status.error, error: "Bad Request" });
+      }
+      if (!Array.isArray(req.body.receiver)) {
+        return res
+          .status(400)
+          .send({ status: Status.error, error: "Bad Request" });
+      }
+      const data = await defaultMail(req.body.receiver);
+      //const data = req.body.receiver;
       return res.status(200).json({ status: Status.success, name: data });
     } catch (err) {
       return res.status(500).send({ status: Status.error, error: err });
