@@ -9,14 +9,12 @@ const abouts = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus sit amet dictum sit amet. Aliquam nulla facilisi cras fermentum. Viverra nam libero justo laoreet sit.",
     img: imgMain,
-    imgHide: false,
   },
   {
     name: "Subtitle 2",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus sit amet dictum sit amet. Aliquam nulla facilisi cras fermentum. Viverra nam libero justo laoreet sit.",
     img: imgMain,
-    imgHide: false,
   },
   {
     name: "Subtitle 3",
@@ -39,7 +37,7 @@ const AboutSection = (): JSX.Element => {
             key={index}
             className="px-2 lg:w-9/12 mt-16 md:mt-24 md:grid md:grid-cols-2"
           >
-            <div className={about.imgHide ? "hidden md:block" : "block"}>
+            <div className="block">
               <Image src={about.img} alt="Image Description" />
             </div>
             <div className="flex items-center">
@@ -54,7 +52,7 @@ const AboutSection = (): JSX.Element => {
             key={index}
             className="px-2 lg:w-9/12 mt-16 md:mt-24 md:grid md:grid-cols-2"
           >
-            <div className={about.imgHide ? "hidden" : "block md:hidden"}>
+            <div className="block md:hidden">
               <Image src={about.img} alt="Image Description" />
             </div>
             <div className="flex items-center">

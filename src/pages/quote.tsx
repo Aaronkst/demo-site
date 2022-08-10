@@ -24,7 +24,7 @@ const Quote: NextPage = (): JSX.Element => {
         <p className="text-gray-600 mt-5 text-center">
           Fill your info and we will send you a quotation
         </p>
-        <div className="w-full px-3 mt-16">
+        <div className="w-full px-3 mt-8">
           <form onSubmit={submitInfo}>
             <div>
               <label htmlFor="name">
@@ -59,9 +59,7 @@ const Quote: NextPage = (): JSX.Element => {
               />
             </div>
             <div>
-              <label htmlFor="name">
-                Message <span className="text-red-500">*</span>
-              </label>
+              <label htmlFor="name">Message</label>
               <textarea
                 name="message"
                 id="message"
