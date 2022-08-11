@@ -13,13 +13,14 @@ const Quote: NextPage = (): JSX.Element => {
       info.email &&
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(info.email)
     ) {
-      axios
+      /*axios
         .post("/api/mail", { receiver: [info.email] })
         .then((data) => {
           console.log(data);
           alert("success");
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err));*/
+      alert("success");
     } else {
       alert("Invalid Info");
     }
