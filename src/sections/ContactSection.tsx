@@ -32,8 +32,8 @@ const ContactSection = (): JSX.Element => {
   return (
     <>
       <div id="about" className="flex flex-col items-center bg-gray-800 py-24">
-        <div className="md:grid md:grid-cols-3 md:divide-x md:gap-5 w-full lg:w-9/12 text-white">
-          <div className="p-3 md:p-5 hidden md:block">
+        <div className="lg:grid lg:grid-cols-3 lg:divide-x lg:gap-5 w-full lg:w-9/12 text-white">
+          <div className="p-3 lg:p-5 hidden lg:block">
             <p>
               <SubTitle title="Get in Touch!" />
             </p>
@@ -43,7 +43,7 @@ const ContactSection = (): JSX.Element => {
               sit amet dictum sit amet.
             </p>
           </div>
-          <div className="p-3 md:p-5">
+          <div className="p-3 lg:p-5">
             <p>
               <SubTitle title="Contact Info" />
             </p>
@@ -62,7 +62,7 @@ const ContactSection = (): JSX.Element => {
               );
             })}
           </div>
-          <div className="p-3 md:p-5">
+          <div className="p-3 lg:p-5">
             <p>
               <SubTitle title="Subscribe to Email" />
             </p>

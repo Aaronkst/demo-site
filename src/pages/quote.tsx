@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import React, { useState } from "react";
 import { SectionHeader } from "../components/Typography";
 import axios from "axios";
+import Link from "next/link";
 
 const Quote: NextPage = (): JSX.Element => {
   const [info, setInfo] = useState({ name: "", email: "", message: "" });
@@ -21,8 +22,8 @@ const Quote: NextPage = (): JSX.Element => {
   };
 
   return (
-    <div className="w-full h-screen md:bg-gray-800 flex flex-col items-center justify-center">
-      <div className="md:w-1/3 md:p-5 bg-white md:rounded-lg">
+    <div className="w-full h-screen lg:bg-gray-800 flex flex-col items-center justify-center">
+      <div className="lg:w-1/3 lg:p-5 bg-white lg:rounded-lg">
         <SectionHeader title="Info" />
         <p className="text-gray-600 mt-5 text-center">
           Fill your info and we will send you a quotation
@@ -77,18 +78,16 @@ const Quote: NextPage = (): JSX.Element => {
             </div>
             <div>
               <button
-                className="p-3 inline bg-indigo-600 text-white hover:bg-indigo-700 sm:text-sm border-gray-300 rounded-md w-full mb-3"
+                className="p-3 block bg-indigo-600 text-white hover:bg-indigo-700 sm:text-sm rounded-md w-full mb-3"
                 type="submit"
               >
                 Get Quote
               </button>
-              <button
-                className="p-3 inline bg-gray-300 hover:bg-gray-400 sm:text-sm border-gray-300 rounded-md w-full"
-                type="reset"
-                onClick={() => window.location.assign("/")}
-              >
-                Cancel
-              </button>
+              <Link href="/">
+                <a className="p-3 block text-indigo-700 bg-indigo-100 hover:bg-indigo-200 sm:text-sm rounded-md w-full text-center">
+                  Cancel
+                </a>
+              </Link>
             </div>
           </form>
         </div>

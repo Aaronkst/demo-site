@@ -8,8 +8,8 @@ const PageHeader = ({ title, white = false }: Props): JSX.Element => {
     <span
       className={
         white
-          ? "text-center block font-extrabold text-4xl md:text-6xl text-white"
-          : "text-center block font-extrabold text-4xl md:text-6xl text-indigo-600"
+          ? "text-center block font-extrabold text-4xl lg:text-6xl text-white"
+          : "text-center block font-extrabold text-4xl lg:text-6xl text-indigo-600"
       }
     >
       {title}
@@ -22,8 +22,8 @@ const SectionHeader = ({ title, white = false }: Props): JSX.Element => {
     <span
       className={
         white
-          ? "text-center block font-extrabold text-3xl md:text-5xl text-white"
-          : "text-center block font-extrabold text-3xl md:text-5xl text-indigo-600"
+          ? "text-center block font-extrabold text-3xl lg:text-5xl text-white"
+          : "text-center block font-extrabold text-3xl lg:text-5xl text-indigo-600"
       }
     >
       {title}
