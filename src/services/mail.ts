@@ -19,7 +19,7 @@ const defaultMail = async (receiver: Array<string>): Promise<string> => {
 
     // send mail with defined transport object
     let info = await transporter.sendMail({
-      from: "addTech <info@addtech.site>", // sender address
+      from: "addTech | Digital Solutions <info@addtech.site>", // sender address
       to: receiver.length === 1 ? receiver[0] : receiver.join(", "), // list of receivers
       envelope: {
         from: "info@addtech.site", // sender address
