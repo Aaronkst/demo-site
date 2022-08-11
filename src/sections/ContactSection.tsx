@@ -16,7 +16,11 @@ const contacts = [
   },
 ];
 
-const ContactSection = (): JSX.Element => {
+type IProps = {
+  base?: Boolean;
+};
+
+const ContactSection = ({ base = false }: IProps): JSX.Element => {
   const [mail, setMail] = useState("");
 
   const subscribe = (e: React.FormEvent<HTMLFormElement>) => {
@@ -29,10 +33,14 @@ const ContactSection = (): JSX.Element => {
     }
   };
 
+  const className = base
+    ? "lg:grid lg:grid-cols-2 lg:divide-x lg:gap-5 w-full lg:w-9/12 text-white"
+    : "lg:grid lg:grid-cols-3 lg:divide-x lg:gap-5 w-full lg:w-9/12 text-white";
+
   return (
     <>
-      <div id="about" className="flex flex-col items-center bg-gray-800 py-24">
-        <div className="lg:grid lg:grid-cols-3 lg:divide-x lg:gap-5 w-full lg:w-9/12 text-white">
+      <div className="flex flex-col items-center bg-gray-800 py-24">
+        <div className={className}>
           <div className="p-3 lg:p-5 hidden lg:block">
             <p>
               <SubTitle title="Get in Touch!" />
@@ -62,32 +70,34 @@ const ContactSection = (): JSX.Element => {
               );
             })}
           </div>
-          <div className="p-3 lg:p-5">
-            <p>
-              <SubTitle title="Subscribe to Email" />
-            </p>
-            <div>
-              <form onSubmit={subscribe}>
-                <input
-                  type="text"
-                  name="email"
-                  id="email"
-                  className="text-black p-3 focus:ring-indigo-500 focus:border-indigo-500 inline sm:text-sm border-gray-300 rounded-l-md w-9/12"
-                  placeholder="yourmail@example.com"
-                  value={mail}
-                  onChange={(e) => {
-                    setMail(e.target.value);
-                  }}
-                />
-                <button
-                  className="p-3 inline bg-indigo-600 hover:bg-indigo-700 sm:text-sm border-gray-300 rounded-r-md w-3/12"
-                  type="submit"
-                >
-                  Subscribe
-                </button>
-              </form>
+          {!base && (
+            <div className="p-3 lg:p-5">
+              <p>
+                <SubTitle title="Subscribe to Email" />
+              </p>
+              <div>
+                <form onSubmit={subscribe}>
+                  <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    className="text-black p-3 focus:ring-indigo-500 focus:border-indigo-500 inline sm:text-sm border-gray-300 rounded-l-md w-9/12"
+                    placeholder="yourmail@example.com"
+                    value={mail}
+                    onChange={(e) => {
+                      setMail(e.target.value);
+                    }}
+                  />
+                  <button
+                    className="p-3 inline bg-indigo-600 hover:bg-indigo-700 sm:text-sm border-gray-300 rounded-r-md w-3/12"
+                    type="submit"
+                  >
+                    Subscribe
+                  </button>
+                </form>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </>

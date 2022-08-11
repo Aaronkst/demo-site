@@ -29,7 +29,7 @@ const abouts = [
 const AboutSection = (): JSX.Element => {
   const [imgError, setImgError] = useState(false);
   return (
-    <div id="about" className="flex flex-col items-center bg-indigo-100 py-24">
+    <div className="flex flex-col items-center bg-indigo-100 py-24">
       <p>
         <SectionHeader title="About" />
       </p>
@@ -45,11 +45,11 @@ const AboutSection = (): JSX.Element => {
                   src={about.img}
                   alt="Image Description"
                   onError={() => {
-                    !imgError && setImgError(true);
+                    //!imgError && setImgError(true);
                   }}
                 />
               )}
-              {imgError && <img src={about.img.src} alt="Image Description" />}
+              {/*imgError && <img src={about.img.src} alt="Image Description" />*/}
             </div>
             <div className="flex items-center">
               <p className="text-lg pb-3 lg:p-5 my-5 lg:my-0 text-center lg:text-left border-b-1 border-indigo-600 lg:border-r-2 lg:border-b-0">
@@ -69,11 +69,11 @@ const AboutSection = (): JSX.Element => {
                   src={about.img}
                   alt="Image Description"
                   onError={() => {
-                    !imgError && setImgError(true);
+                    //!imgError && setImgError(true);
                   }}
                 />
               )}
-              {imgError && <img src={about.img.src} alt="Image Description" />}
+              {/*imgError && <img src={about.img.src} alt="Image Description" />*/}
             </div>
             <div className="flex items-center">
               <p className="text-lg pb-5 lg:p-5 my-3 lg:my-0 text-center lg:text-right border-b-1 border-indigo-600 lg:border-l-2 lg:border-b-0">
@@ -87,11 +87,11 @@ const AboutSection = (): JSX.Element => {
                   src={about.img}
                   alt="Image Description"
                   onError={() => {
-                    !imgError && setImgError(true);
+                    //!imgError && setImgError(true);
                   }}
                 />
               )}
-              {imgError && <img src={about.img.src} alt="Image Description" />}
+              {/*imgError && <img src={about.img.src} alt="Image Description" />*/}
             </div>
           </div>
         );
