@@ -2,6 +2,7 @@ import { SectionHeader, SubTitle } from "../components/Typography";
 import Image from "next/image";
 
 import imgMain from "../images/main.jpg";
+import { useState } from "react";
 
 const abouts = [
   {
@@ -26,6 +27,7 @@ const abouts = [
 ];
 
 const AboutSection = (): JSX.Element => {
+  const [imgError, setImgError] = useState(false);
   return (
     <div id="about" className="flex flex-col items-center bg-indigo-100 py-24">
       <p>
@@ -38,7 +40,14 @@ const AboutSection = (): JSX.Element => {
             className="px-2 lg:w-9/12 mt-16 lg:mt-24 lg:grid lg:grid-cols-2"
           >
             <div className="block">
-              <Image src={about.img} alt="Image Description" />
+              <Image
+                src={about.img}
+                alt="Image Description"
+                onError={() => {
+                  !imgError && setImgError(true);
+                }}
+              />
+              {imgError && <img src={about.img.src} alt="Image Description" />}
             </div>
             <div className="flex items-center">
               <p className="text-lg pb-3 lg:p-5 my-5 lg:my-0 text-center lg:text-left border-b-1 border-indigo-600 lg:border-r-2 lg:border-b-0">
@@ -53,7 +62,14 @@ const AboutSection = (): JSX.Element => {
             className="px-2 lg:w-9/12 mt-16 lg:mt-24 lg:grid lg:grid-cols-2"
           >
             <div className="block lg:hidden">
-              <Image src={about.img} alt="Image Description" />
+              <Image
+                src={about.img}
+                alt="Image Description"
+                onError={() => {
+                  !imgError && setImgError(true);
+                }}
+              />
+              {imgError && <img src={about.img.src} alt="Image Description" />}
             </div>
             <div className="flex items-center">
               <p className="text-lg pb-5 lg:p-5 my-3 lg:my-0 text-center lg:text-right border-b-1 border-indigo-600 lg:border-l-2 lg:border-b-0">
@@ -62,7 +78,14 @@ const AboutSection = (): JSX.Element => {
               </p>
             </div>
             <div className="hidden lg:block">
-              <Image src={about.img} alt="Image Description" />
+              <Image
+                src={about.img}
+                alt="Image Description"
+                onError={() => {
+                  !imgError && setImgError(true);
+                }}
+              />
+              {imgError && <img src={about.img.src} alt="Image Description" />}
             </div>
           </div>
         );
