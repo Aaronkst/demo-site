@@ -40,13 +40,15 @@ const AboutSection = (): JSX.Element => {
             className="px-2 lg:w-9/12 mt-16 lg:mt-24 lg:grid lg:grid-cols-2"
           >
             <div className="block">
-              <Image
-                src={about.img}
-                alt="Image Description"
-                onError={() => {
-                  !imgError && setImgError(true);
-                }}
-              />
+              {!imgError && (
+                <Image
+                  src={about.img}
+                  alt="Image Description"
+                  onError={() => {
+                    !imgError && setImgError(true);
+                  }}
+                />
+              )}
               {imgError && <img src={about.img.src} alt="Image Description" />}
             </div>
             <div className="flex items-center">
@@ -62,13 +64,15 @@ const AboutSection = (): JSX.Element => {
             className="px-2 lg:w-9/12 mt-16 lg:mt-24 lg:grid lg:grid-cols-2"
           >
             <div className="block lg:hidden">
-              <Image
-                src={about.img}
-                alt="Image Description"
-                onError={() => {
-                  !imgError && setImgError(true);
-                }}
-              />
+              {!imgError && (
+                <Image
+                  src={about.img}
+                  alt="Image Description"
+                  onError={() => {
+                    !imgError && setImgError(true);
+                  }}
+                />
+              )}
               {imgError && <img src={about.img.src} alt="Image Description" />}
             </div>
             <div className="flex items-center">
@@ -78,13 +82,15 @@ const AboutSection = (): JSX.Element => {
               </p>
             </div>
             <div className="hidden lg:block">
-              <Image
-                src={about.img}
-                alt="Image Description"
-                onError={() => {
-                  !imgError && setImgError(true);
-                }}
-              />
+              {!imgError && (
+                <Image
+                  src={about.img}
+                  alt="Image Description"
+                  onError={() => {
+                    !imgError && setImgError(true);
+                  }}
+                />
+              )}
               {imgError && <img src={about.img.src} alt="Image Description" />}
             </div>
           </div>
