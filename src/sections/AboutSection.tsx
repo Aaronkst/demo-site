@@ -47,6 +47,10 @@ const AboutSection = (): JSX.Element => {
                   onError={() => {
                     //!imgError && setImgError(true);
                   }}
+                  onContextMenu={(e) => {
+                    e.preventDefault();
+                    return false;
+                  }}
                 />
               )}
               {/*imgError && <img src={about.img.src} alt="Image Description" />*/}
@@ -71,6 +75,10 @@ const AboutSection = (): JSX.Element => {
                   onError={() => {
                     //!imgError && setImgError(true);
                   }}
+                  onContextMenu={(e) => {
+                    e.preventDefault();
+                    return false;
+                  }}
                 />
               )}
               {/*imgError && <img src={about.img.src} alt="Image Description" />*/}
@@ -88,6 +96,10 @@ const AboutSection = (): JSX.Element => {
                   alt="Image Description"
                   onError={() => {
                     //!imgError && setImgError(true);
+                  }}
+                  onContextMenu={(e) => {
+                    e.preventDefault();
+                    return false;
                   }}
                 />
               )}
