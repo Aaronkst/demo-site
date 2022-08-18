@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { SectionHeader } from "../components/Typography";
 //import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Quote: NextPage = (): JSX.Element => {
+  const router = useRouter();
   const [info, setInfo] = useState({ name: "", email: "", message: "" });
   const submitInfo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -88,11 +90,13 @@ const Quote: NextPage = (): JSX.Element => {
               >
                 Get Quote
               </button>
-              <Link href="/">
-                <a className="p-3 block text-indigo-700 bg-indigo-100 hover:bg-indigo-200 sm:text-sm rounded-md w-full text-center">
-                  Cancel
-                </a>
-              </Link>
+              <button
+                className="p-3 block text-indigo-700 bg-indigo-100 hover:bg-indigo-200 sm:text-sm rounded-md w-full"
+                type="reset"
+                onClick={() => router.back()}
+              >
+                Cancel
+              </button>
             </div>
           </form>
         </div>

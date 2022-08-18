@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:css": "npx tailwindcss -i ./src/styles/globals.css -o ./src/styles/main.css",
+    "build:css": "npx tailwindcss -i ./src/assets/styles/globals.css -o ./src/assets/styles/main.css",
     "dev": "npm run build:css && next dev",
     "build": "next build",
     "start": "next start",
