@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import React, { useState } from "react";
 import { SectionHeader } from "../components/Typography";
-import axios from "axios";
+//import axios from "axios";
 import Link from "next/link";
 
 const Quote: NextPage = (): JSX.Element => {
